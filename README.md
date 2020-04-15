@@ -7,7 +7,7 @@
 
 ## Frontend Client React App
 
-```git clone https://github.com/codesydney/codesydney.git
+```git clone https://github.com/flormcalvo/poc-csyd-mentor.git
 cd client
 npm run start
 ```
