@@ -1,0 +1,11 @@
+.mentor-card{
+  width: 50%;
+  border-style: dotted;
+}
+
+.mentor-photo{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: inline-block;
+}
