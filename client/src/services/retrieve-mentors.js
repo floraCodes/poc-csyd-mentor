@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export const retrieveMentors = () => (
-  axios.get('http://localhost:5000/api/v1/mentors')
-    .then(response => response.data.data.mentors)
-    .catch(error => console.log(`some error: ${error}`))
-)
+export const retrieveMentors = (apiUrl) =>
+  axios
+    .get(apiUrl)
+    .then((response) => response.data.data.mentors)
+    .catch((error) => Promise.reject(error))
