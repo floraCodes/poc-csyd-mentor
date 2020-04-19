@@ -2,6 +2,7 @@
 .mentor-card{
   width: 50%;
   border-style: dotted;
+  margin: 10px;
 }
 
 .mentor-photo{

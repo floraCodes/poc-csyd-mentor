@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
+import LinkComponent from '../LinkComponent'
 import Logo from '../../static/logo.png'
+import Add from '../../static/add-user.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     position: 'fixed',
     width: '100%',
+  },
+  addButton: {
+    marginLeft: '2px',
   },
   title: {
     flexGrow: 1,
@@ -73,9 +78,9 @@ const SearchAppBar = () => {
         <Toolbar>
           <IconButton
             edge="start"
-            className={classes.menuButton}
             color="inherit"
-            aria-label="open drawer"
+            component={LinkComponent}
+            to="/"
           >
             <img src={Logo} alt="Logo" />
           </IconButton>
@@ -95,6 +100,15 @@ const SearchAppBar = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <IconButton
+            edge="start"
+            className={classes.addButton}
+            color="inherit"
+            component={LinkComponent}
+            to="/mentor/create"
+          >
+            <img src={Add} alt="Add" />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
