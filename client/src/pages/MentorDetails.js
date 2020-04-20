@@ -22,16 +22,13 @@ const MentorDetails = () => {
       </div>
       <div className="mentor-info">
         <p>
-          Fullname:
-          {mentor.fullName}
+          Fullname: {mentor.fullName}
         </p>
         <p>
-          Title:
-          {mentor.title}
+          Title: {mentor.title}
         </p>
         <p>
-          Description:
-          {mentor.description}
+          Description: {mentor.description}
         </p>
       </div>
     </div>
