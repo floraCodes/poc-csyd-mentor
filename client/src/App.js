@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import MentorsList from './pages/MentorsList'
 import MentorDetails from './pages/MentorDetails'
 import MentorForm from './pages/MentorForm'
 import SearchAppBar from './components/Navbar'
-import { retrieveMentors } from './services/retrieve-mentors'
-import { baseApiUrl } from './config'
+import { initialiseMentors } from './actions/mentorAction'
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles()
-  const [mentors, setMentors] = useState([])
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    retrieveMentors(baseApiUrl).then((allMentors) => setMentors(allMentors))
-  }, [])
+    dispatch(initialiseMentors())
+  }, [dispatch])
 
   return (
     <Router>
@@ -30,10 +30,10 @@ const App = () => {
             <MentorForm />
           </Route>
           <Route path="/mentor/:id">
-            <MentorDetails mentors={mentors} />
+            <MentorDetails />
           </Route>
           <Route exact path="/">
-            <MentorsList mentors={mentors} />
+            <MentorsList />
           </Route>
         </Switch>
       </div>
