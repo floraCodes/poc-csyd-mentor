@@ -30,7 +30,7 @@ const App = () => {
             <MentorForm />
           </Route>
           <Route path="/mentor/:id">
-            <MentorDetails mentors={mentors} />
+            <MentorDetails />
           </Route>
           <Route exact path="/">
             <MentorsList mentors={mentors} />
