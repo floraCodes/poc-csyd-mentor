@@ -1,21 +1,17 @@
 {
-  "extends": [
-    "airbnb",
-    "prettier"
-  ],
+  "extends": ["airbnb", "prettier"],
   "env": {
     "browser": true,
     "node": true
   },
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "semi": 0,
-    "import/prefer-default-export": "off",
+    "import/prefer-default-export": "on",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "prettier/prettier": [
-      "error", {
+      "error",
+      {
         "semi": false,
         "singleQuote": true
       }
