@@ -1,18 +1,19 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 import Card from '../components/Card'
 import './Page.css'
 
-const MentorsList = ({ mentors }) => (
-  <div className="wrapper">
-    {mentors.map((mentor) => (
-      <Card key={`card-${mentor.id}`} mentor={mentor} />
-    ))}
-  </div>
-)
+const MentorsList = () => {
+  const { mentors } = useSelector((state) => state)
 
-MentorsList.propTypes = {
-  mentors: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  return (
+    <div className="wrapper">
+      {mentors.length !== 0 &&
+        mentors.map((mentor) => (
+          <Card key={`card-${mentor.id}`} mentor={mentor} />
+        ))}
+    </div>
+  )
 }
 
 export default MentorsList
