@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
 import MentorsList from './pages/MentorsList'
-import { retrieveMentors } from './services/retrieve-mentors'
+import MentorDetails from './pages/MentorDetails'
+import MentorForm from './pages/MentorForm'
 import SearchAppBar from './components/Navbar'
+import { retrieveMentors } from './services/retrieve-mentors'
 import { baseApiUrl } from './config'
 
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+}))
+
 const App = () => {
+  const classes = useStyles()
   const [mentors, setMentors] = useState([])
 
   useEffect(() => {
@@ -12,10 +21,23 @@ const App = () => {
   }, [])
 
   return (
-    <div>
+    <Router>
       <SearchAppBar />
-      <MentorsList mentors={mentors} />
-    </div>
+      <div>
+        <div className={classes.toolbar} />
+        <Switch>
+          <Route path="/mentor/create">
+            <MentorForm />
+          </Route>
+          <Route path="/mentor/:id">
+            <MentorDetails mentors={mentors} />
+          </Route>
+          <Route exact path="/">
+            <MentorsList mentors={mentors} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 }
 

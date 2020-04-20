@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import './Card.css'
 import noPhotoIcon from '../../static/no-photo-icon.png'
 
@@ -10,12 +11,18 @@ const Card = ({ mentor }) => {
     : noPhotoIcon
 
   return (
-    <div className="mentor-card">
-      <img className="mentor-photo" src={mentorPhoto} alt="some description" />
-      <p>{fullName}</p>
-      <p>{title}</p>
-      <p>{description}</p>
-    </div>
+    <Link to={`/mentor/${id}`}>
+      <div className="mentor-card">
+        <img
+          className="mentor-photo"
+          src={mentorPhoto}
+          alt="some description"
+        />
+        <p>{fullName}</p>
+        <p>{title}</p>
+        <p>{description}</p>
+      </div>
+    </Link>
   )
 }
 
