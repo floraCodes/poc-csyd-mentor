@@ -1,0 +1,42 @@
+.header-row {
+  display: flex;
+}
+
+.header-col {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.photo-container{
+  border: solid 1px;
+  border-radius: 50%;
+}
+
+.photo {
+  height: 160px;
+  width: 160px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 16px;
+}
+
+input, textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  border: solid 2px gray;
+  font-size: 12px;
+  outline: none;
+  width: 100%;
+
+}

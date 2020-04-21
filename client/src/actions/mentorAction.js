@@ -10,3 +10,16 @@ export const initialiseMentors = () => {
     })
   }
 }
+
+export const createMentor = (newMentorDetails) => {
+  return async (dispatch) => {
+    const newMentor = await mentorsService.createNew(
+      baseApiUrl,
+      newMentorDetails
+    )
+    dispatch({
+      type: 'NEW_MENTOR',
+      data: newMentor,
+    })
+  }
+}

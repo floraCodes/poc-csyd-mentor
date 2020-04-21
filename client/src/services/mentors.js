@@ -5,4 +5,9 @@ const getAll = async (apiUrl) => {
   return response.data.data.mentors
 }
 
-export default { getAll }
+const createNew = async (apiUrl, newMentor) => {
+  const response = await axios.post(apiUrl, newMentor)
+  return response.data.data.mentor
+}
+
+export default { getAll, createNew }

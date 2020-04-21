@@ -1,0 +1,17 @@
+button{
+  position:absolute;
+  bottom: 5%;
+  width:75px;
+  font-size:14px;
+  border: solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.left {
+  left:20%;
+}
+
+.right {
+  right:20%;
+}

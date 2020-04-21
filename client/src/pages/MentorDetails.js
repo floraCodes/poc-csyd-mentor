@@ -2,9 +2,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import './Page.css'
-import './Detail.css'
+import DetailsLayout from '../components/DetailsLayout'
+import Button from '../components/Button'
 import noPhotoIcon from '../static/no-photo-icon.png'
+import './Page.css'
 
 const MentorDetails = () => {
   const { id } = useParams()
@@ -12,15 +13,25 @@ const MentorDetails = () => {
   const mentor = mentors.find((m) => m.id === id)
 
   return (
-    <div className="wrapper">
+    <>
       {mentor && (
-        <>
-          <p>{mentor.fullName}</p>
-          <p>{mentor.title}</p>
-          <p>{mentor.description}</p>
-        </>
+        <DetailsLayout
+          image={
+            <img className="photo" src={noPhotoIcon} alt="some description" />
+          }
+          fullName={mentor.fullName}
+          title={mentor.title}
+          description={mentor.description}
+          buttons={
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <>
+              <Button position="left" label="Edit" />
+              <Button position="right" label="Delete" />
+            </>
+          }
+        />
       )}
-    </div>
+    </>
   )
 }
 export default MentorDetails
