@@ -23,3 +23,24 @@ export const createMentor = (newMentorDetails) => {
     })
   }
 }
+
+export const deleteMentor = (mentorId) => {
+  return async (dispatch) => {
+    await mentorsService.deleteMentor(baseApiUrl, mentorId)
+    dispatch({
+      type: 'DELETE_MENTOR',
+      data: mentorId
+    })
+  }
+}
+
+export const editMentor = (mentorId, updatedMentorDetails) => {
+  return async (dispatch) => {
+    await mentorsService.editMentor(baseApiUrl, mentorId, updatedMentorDetails)
+    updatedMentorDetails.id = mentorId
+    dispatch({
+      type: 'EDIT_MENTOR',
+      data: updatedMentorDetails
+    })
+  }
+}

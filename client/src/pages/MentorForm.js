@@ -1,35 +1,25 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import DetailsLayout from '../components/DetailsLayout'
 import Button from '../components/Button'
 import noPhotoIcon from '../static/no-photo-icon.png'
-import { createMentor } from '../actions/mentorAction'
 
-const MentorForm = () => {
-  const [fullName, setFullName] = useState('')
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+const MentorForm = ({ handleSubmit, initialValues}) => {
+  const [fullName, setFullName] = useState(initialValues.fullName)
+  const [title, setTitle] = useState(initialValues.title)
+  const [description, setDescription] = useState(initialValues.description)
   const [photo, setPhoto] = useState(false)
 
-  const dispatch = useDispatch()
-  const history = useHistory()
-
-  const addMentor = async (event) => {
-    event.preventDefault()
-    const newMentorDetails = {
-      fullName,
-      title,
-      description,
-      photo,
-    }
-    dispatch(createMentor(newMentorDetails))
-    history.push('/')
+  const mentorInfo = {
+    fullName,
+    title,
+    description,
+    photo,
   }
 
   return (
-    <form onSubmit={addMentor}>
+    <form onSubmit={handleSubmit(mentorInfo)}>
       <DetailsLayout
         image={
           <img className="photo" src={noPhotoIcon} alt="some description" />
@@ -38,6 +28,7 @@ const MentorForm = () => {
           <input
             name="fullName"
             placeholder="Your full name"
+            value={fullName}
             onChange={({ target }) => setFullName(target.value)}
           />
         }
@@ -45,6 +36,7 @@ const MentorForm = () => {
           <input
             name="title"
             placeholder="Your title"
+            value={title}
             onChange={({ target }) => setTitle(target.value)}
           />
         }
@@ -52,6 +44,7 @@ const MentorForm = () => {
           <textarea
             rows="13"
             name="description"
+            value={description}
             placeholder="Share something about yourself..."
             onChange={({ target }) => setDescription(target.value)}
           />

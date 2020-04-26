@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import MentorsList from './pages/MentorsList'
 import MentorDetails from './pages/MentorDetails'
-import MentorForm from './pages/MentorForm'
+import NewMentor from './pages/NewMentor'
+import EditMentor from './pages/EditMentor'
 import SearchAppBar from './components/Navbar'
 import { initialiseMentors } from './actions/mentorAction'
 
@@ -26,8 +27,11 @@ const App = () => {
       <div>
         <div className={classes.toolbar} />
         <Switch>
-          <Route path="/mentor/create">
-            <MentorForm />
+          <Route path="/mentor/edit/:id">
+            <EditMentor />
+          </Route>
+          <Route exact path="/mentor/create">
+            <NewMentor />
           </Route>
           <Route path="/mentor/:id">
             <MentorDetails />
