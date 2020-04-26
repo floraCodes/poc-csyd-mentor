@@ -21,7 +21,8 @@ const EditMentor = () => {
   const updateMentor = (mentorInfo) => (event) => {
     event.preventDefault()
     dispatch(editMentor(id, mentorInfo))
-    // history.push('/')
+    alert('Your details have been updated.')
+    history.push('/')
   }
 
   return(

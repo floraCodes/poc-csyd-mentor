@@ -1,3 +1,9 @@
 .wrapper {
   margin: 20px 10px;
 }
+
+.mentorSummary {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

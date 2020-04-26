@@ -7,7 +7,7 @@ const MentorsList = () => {
   const { mentors } = useSelector((state) => state)
 
   return (
-    <div className="wrapper">
+    <div className="wrapper mentorSummary">
       {mentors.length !== 0 &&
         mentors.map((mentor) => (
           <Card key={`card-${mentor.id}`} mentor={mentor} />

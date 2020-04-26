@@ -8,7 +8,7 @@ const NewMentor = () => {
   const initialValues = {
     fullName: '',
     title: '',
-    description: ''
+    description: '',
   }
 
   const dispatch = useDispatch()
@@ -17,6 +17,7 @@ const NewMentor = () => {
   const addMentor = (mentorInfo) => (event) => {
     event.preventDefault()
     dispatch(createMentor(mentorInfo))
+    alert('Your new mentor profile has been created.')
     history.push('/')
   }
 

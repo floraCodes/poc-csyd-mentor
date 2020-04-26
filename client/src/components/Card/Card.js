@@ -11,8 +11,8 @@ const Card = ({ mentor }) => {
     : noPhotoIcon
 
   return (
-    <Link to={`/mentor/${id}`}>
-      <div className="mentor-card">
+    <Link to={`/mentor/${id}`} className="mentor-card">
+      <>
         <img
           className="mentor-photo"
           src={mentorPhoto}
@@ -20,8 +20,8 @@ const Card = ({ mentor }) => {
         />
         <p>{fullName}</p>
         <p>{title}</p>
-        <p>{description}</p>
-      </div>
+        <p className="description">{description}</p>
+      </>
     </Link>
   )
 }

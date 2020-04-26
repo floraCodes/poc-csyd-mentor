@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import DetailsLayout from '../components/DetailsLayout'
+import FileUpload from '../components/FileUpload'
 import Button from '../components/Button'
 import noPhotoIcon from '../static/no-photo-icon.png'
 
@@ -23,6 +24,7 @@ const MentorForm = ({ handleSubmit, initialValues}) => {
       <DetailsLayout
         image={
           <img className="photo" src={noPhotoIcon} alt="some description" />
+          // <FileUpload />
         }
         fullName={
           <input

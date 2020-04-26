@@ -11,6 +11,9 @@ const MentorDetails = () => {
   const { id } = useParams()
   const { mentors } = useSelector((state) => state)
   const mentor = mentors.find((m) => m.id === id)
+  const mentorPhoto = mentor.photo
+    ? `https://codesydney-website.s3-ap-southeast-2.amazonaws.com/mentor/${id}.png`
+    : noPhotoIcon
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -23,6 +26,7 @@ const MentorDetails = () => {
   const handleDelete = async (event) => {
     event.preventDefault()
     dispatch(deleteMentor(id))
+    alert('Your details have been deleted.')
     history.push('/')
   }
 
@@ -31,7 +35,7 @@ const MentorDetails = () => {
       {mentor && (
         <DetailsLayout
           image={
-            <img className="photo" src={noPhotoIcon} alt="some description" />
+            <img className="photo" src={mentorPhoto} alt="some description" />
           }
           fullName={mentor.fullName}
           title={mentor.title}

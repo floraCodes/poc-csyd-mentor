@@ -1,8 +1,10 @@
 
 .mentor-card{
   width: 50%;
-  border-style: dotted;
+  border: solid 1px gray;
   margin: 10px;
+  overflow-wrap: break-word;
+  flex: 1;
 }
 
 .mentor-photo{
